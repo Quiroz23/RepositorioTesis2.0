@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.custom-placeholder-color::placeholder {
+    color: rgb(65, 3, 3);
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  input[type="text"]::-webkit-scrollbar-thumb {
+    background: white; /* Color de fondo de la barra de desplazamiento */
+  }
+
+  .custom-placeholder-gray::placeholder {
+    color: rgb(7, 6, 6);
+    font-size: 20px;
+    font-weight: 500;
+    
+  } 
+  
+.custom-placeholder-gray:hover::placeholder {
+  color: #ffffff;
+}

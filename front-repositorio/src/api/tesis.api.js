@@ -1,0 +1,26 @@
+import axios from 'axios';
+
+const TesisApi = axios.create({
+    baseURL: 'http://127.0.0.1:8000/tesis/api/tesis/',
+});
+
+export const getAllTesis = () => TesisApi.get('/tesis/');
+export const getTesis = (id) => TesisApi.get(`/tesis/${id}/`);
+
+export const addTesisWithFile = (data) => {
+    const formData = new FormData();
+    formData.append('archivo', data.archivo);
+    formData.append('titulo_tesis', data.titulo_tesis);
+    formData.append('area_academica', data.area_academica);
+    formData.append('id_usuario', data.id_usuario);
+    formData.append('nombre_usuario', data.nombre_usuario);
+    formData.append('apellido_paterno', data.apellido_paterno);
+    formData.append('email_academico', data.email_academico);
+    formData.append('fecha_creacion', data.fecha_creacion);
+
+    return TesisApi.post('/upload/', formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data',
+        },
+    });
+};

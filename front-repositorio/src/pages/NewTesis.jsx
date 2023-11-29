@@ -68,44 +68,44 @@ const NewTesis = ({ userData }) => {
         onSubmit={handleSubmit}
       >
         <h2 className="text-center text-3xl font-bold pt-5 pl-4 text-red-950">
-          Agregar tesis
+          Ingresar Tesis
         </h2>
         <section className="grid grid-rows-4 grid-cols-2 gap-3 pt-5 pb-5 ">
         <input
             type="text"
             placeholder="Nombre Usuario"
-            className="bg-gray-300 hover:bg-red-100 text-red-950 custom-placeholder-color font-medium rounded-md pl-4 outline-non"
+            className="bg-gray-200 hover:bg-red-100 text-red-950 custom-placeholder-color font-medium rounded-md pl-4 outline-none"
             value={nombre_usuario}
           />
           <input
             type="text"
             placeholder="Apellido Materno"
-            className="bg-gray-300 hover:bg-red-100 custom-placeholder-color font-medium rounded-md pl-4 outline-none text-red-950 "
+            className="bg-gray-200 hover:bg-red-100 custom-placeholder-color font-medium rounded-md pl-4 outline-none text-red-950 "
             value={apellido_paterno}
           />
           <input
             type="email"
             placeholder="Email"
-            className="bg-gray-300 hover:bg-red-100 custom-placeholder-color font-medium rounded-md pl-4 outline-none text-red-950 "
+            className="bg-gray-200 hover:bg-red-100 custom-placeholder-color font-medium rounded-md pl-4 outline-none text-red-950 "
             value={email_academico}
           />
           <input
             type="text"
             placeholder="Área tesis"
-            className="bg-gray-300 hover:bg-red-100 text-md custom-placeholder-color font-medium rounded-md pl-4 outline-none text-red-950 "
+            className="bg-gray-200 hover:bg-red-100 text-md custom-placeholder-color font-medium rounded-md pl-4 outline-none text-red-950 "
             value={area_academica}
           />
             <input
               type="text"
               placeholder="Ingrese título tesis"
-              className="col-span-1 bg-gray-300 placeholder:text-red-950 hover:bg-red-100 placeholder:font-medium custom-placeholder-color rounded-md pl-4 outline-none"
+              className="col-span-1 bg-gray-200 placeholder:text-gray-400 hover:bg-red-100 placeholder:font-normal custom-placeholder-color rounded-md pl-4 focus:outline-none focus:ring-0 focus:outline-red-500"
               value={tituloTesis}
               onChange={(e) => SetTituloTesis(e.target.value)}
             />
           <input
             type="date"
             placeholder="Fecha tesis"
-            className="bg-gray-300 hover:bg-red-100 rounded-md px-3 text-red-950 font-normal "
+            className="bg-gray-200 hover:bg-red-100 rounded-md px-3 text-red-950 font-normal focus:outline-none focus:ring-0 focus:outline-red-500"
             value={fecha}
             onChange={(e) => SetFecha(e.target.value)}
           />
@@ -118,7 +118,7 @@ const NewTesis = ({ userData }) => {
             file:rounded-full file:border-0
             file:text-sm file:font-semibold
             file:bg-red-50 file:text-red-700
-            hover:file:bg-red-200 file:"
+            hover:file:bg-red-200"
             onChange={handleArchivoChange} // Cambiado para manejar archivos
           />
         </section>

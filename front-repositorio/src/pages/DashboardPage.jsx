@@ -8,9 +8,9 @@ const DashboardPage = () => {
   
 
   return (
-    <div className="md:grid grid-rows-4 grid-cols-5 w-full h-full gap-4 p-7">
+    <div className="md:grid grid-rows-4 grid-cols-5 w-full h-full gap-4 pb-4 pl-7 pr-7 p-4">
        <section className="bg-white row-span-2 col-span-2 rounded-xl shadow-xl">
-
+      
        </section>
        <section className="bg-white col-span-3 rounded-xl shadow-xl">
 

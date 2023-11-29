@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { getTesis } from "../api/tesis.api";
 import ImagenEjemplo from "../img/ImagenPortadaEjemplo.png";
 import NewPeticion from "../components/NewPeticion";
+import {formatDate} from '../components/utils/FormatDate';
 
 const PreviewTesis = ({ userData }) => {
   const params = useParams();
@@ -46,22 +47,22 @@ const PreviewTesis = ({ userData }) => {
             alt=""
           />
         </section>
-        <section className="flex flex-col pt-2 row-span-1 ">
-          <h1 className="text-4xl font-bold pb-10 ">{dataTesis.titulo_tesis}</h1>
-          <h2 className="text-xl">
-            Autor de la tesis: <span className="uppercase font-semibold">{dataTesis.nombre_usuario} {dataTesis.apellido_paterno}</span> 
+        <section className="flex flex-col pt-2 row-span-1 font-semibold">
+          <h1 className="text-4xl font-bold pb-10 font-semibold">{dataTesis.titulo_tesis}</h1>
+          <h2 className="text-lg font-semibold">
+            Autor de la tesis: <span className="uppercase font-normal">{dataTesis.nombre_usuario} {dataTesis.apellido_paterno}</span> 
           </h2>
-          <p className="text-lg">Año de creacion: <span className="font-semibold">{dataTesis.fecha_creacion}</span></p>
+          <p className="text-lg">Año de creacion: <span className="font-normal">{formatDate(dataTesis.fecha_creacion)}</span></p>
           <p className="text-lg">
             Area academica:{" "}
-            <span className="font-semibold">
+            <span className="font-normal">
               Informatica y telecomunicaciones
             </span>{" "}
           </p>
-          <p className="text-lg">Email: <span className="text-blue-700 underline cursor-pointer">{dataTesis.email_academico}</span></p>
+          <p className="text-lg">Email: <span className="text-blue-800 font-normal cursor-pointer">{dataTesis.email_academico}</span></p>
         </section>
         <section className="flex justify-end items-end">
-            <button className="h-10 w-full bg-red-600 rounded-lg shadow-sm hover:bg-red-400 text-white p-2" onClick={openModalS}>Solicitar leer tesis</button>
+            <button className="h-10 w-full bg-red-600 rounded-lg shadow-sm hover:bg-red-400 text-white p-2" onClick={openModalS}>Solicitar Lectura</button>
             <NewPeticion isOpenModalS={openModalSolicitar} closeModalS={closeModalS} dataTesis={dataTesis} userData={userData} />
         </section>
 

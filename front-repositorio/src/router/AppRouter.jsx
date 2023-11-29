@@ -12,6 +12,7 @@ import { ListTesis } from "../pages/ListTesis";
 import PreviewTesis from "../pages/PreviewTesis";
 import SolicitudesRealizadas from "../pages/SolicitudesRealizadas";
 import ViewPdf from "../pages/ViewPdf";
+import AdministrarTesis from "../pages/AdministrarTesis";
 
 
 const AppRouter = () => {
@@ -76,6 +77,14 @@ const AppRouter = () => {
                 element={
                   <LayoutDashboard>
                     <ViewPdf/>
+                  </LayoutDashboard>
+                }
+              />
+              <Route
+                path="/AdministrarTesis/:id"
+                element={
+                  <LayoutDashboard>
+                    <AdministrarTesis/>
                   </LayoutDashboard>
                 }
               />

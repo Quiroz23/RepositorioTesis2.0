@@ -6,6 +6,7 @@ const TesisApi = axios.create({
 
 export const getAllTesis = () => TesisApi.get('/tesis/');
 export const getTesis = (id) => TesisApi.get(`/tesis/${id}/`);
+export const updateTesis = (id, tesis) => TesisApi.put(`/tesis/${id}/` , tesis)
 
 export const addTesisWithFile = (data) => {
     const formData = new FormData();

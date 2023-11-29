@@ -28,11 +28,14 @@ const SearchModal = ({ isOpen, onClose, userData}) => {
   
     if (searchTesis !== '' && Array.isArray(tesisAll)) {
       const resultados = tesisAll.filter((tesis) => {
+        // Verifica si el título contiene la cadena de búsqueda y el estado es true
         return (
           tesis.titulo_tesis &&
-          tesis.titulo_tesis.toLowerCase().includes(searchTesis.toLowerCase())
+          tesis.titulo_tesis.toLowerCase().includes(searchTesis.toLowerCase()) &&
+          tesis.estado === true
         );
       });
+  
       setResultadosDeBusqueda(resultados);
       console.log('Resultados de la búsqueda:', resultados);
     }

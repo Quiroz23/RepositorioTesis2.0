@@ -12,6 +12,7 @@ class Tesis(models.Model):
     fecha_creacion = models.DateField(null=True)
     archivo = models.FileField(blank=True, null=True)
     area_academica = models.CharField(max_length=100, null=True)
+    estado = models.BooleanField(blank=True, default=True)
             
     def __str__(self) -> str:
         return self.titulo_tesis

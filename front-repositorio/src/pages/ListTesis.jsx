@@ -46,7 +46,7 @@ export const ListTesis = () => {
               </tr>
             )}
 
-            {/* Agregar más filas según sea necesario */}
+            
           </tbody>
         </table>
       </div>

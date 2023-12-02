@@ -40,8 +40,9 @@ const SolicitudesRealizadas = () => {
   };
 
   return (
-    <div className="container mx-14 my-14 bg-white rounded-md p-5">
-      <h2 className="text-4xl font-bold mb-14 mt-10">Solicitudes Realizadas</h2>
+    <div className="p-6">
+    <div className="container bg-white rounded-md p-4">
+      <h2 className="text-4xl font-bold mb-14 mt-3">Solicitudes Realizadas</h2>
       <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4`}>
         {solicitudesFiltradas.map((solicitud) => (
           <div
@@ -56,7 +57,7 @@ const SolicitudesRealizadas = () => {
                 : "bg-white"
             } p-6 rounded-md shadow-md`}
           >
-            <p>ID: {solicitud.id} </p>
+            <p className="font-semibold">ID: {solicitud.id} </p>
             <h3 className="text-xl mb-2">
               Titulo:{" "}
               <span className="font-bold">{solicitud.nombre_tesis}</span>{" "}
@@ -81,7 +82,7 @@ const SolicitudesRealizadas = () => {
             <div className="flex justify-end">
               {solicitud.estado === "aprobado" && (
                 <button 
-                className="bg-blue-600 text-white px-5 py-3 mt-2 rounded-lg hover:bg-blue-400"
+                className="bg-red-700 text-white px-5 py-3 mt-2 rounded-xl hover:bg-gray-800"
                 onClick={() => handleLeerTesis(solicitud.id_tesis)}
                 >
                   Leer Tesis
@@ -91,6 +92,7 @@ const SolicitudesRealizadas = () => {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 };

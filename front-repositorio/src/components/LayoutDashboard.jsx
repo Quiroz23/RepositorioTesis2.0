@@ -42,51 +42,54 @@ const LayoutDashboard = ({ children, setUser }) => {
 
   
   return (
-    <div>
-      <section className="w-screen bg-red-600 h-1"></section>
+    <div className='w-screen '>
+      <section className=" bg-red-600">  </section>
       {/* Navbar */}
 
-      <NavbarDashboard 
-        setUser={setUser}
-        userData={userData}
-        asideOpen={asideOpen}
-        setAsideOpen={setAsideOpen}
-        opciones={opciones}
+        <NavbarDashboard 
+          setUser={setUser}
+          userData={userData}
+          asideOpen={asideOpen}
+          setAsideOpen={setAsideOpen}
+          opciones={opciones}
 
-      />
-      
+        />
+        
 
-      {/* Contenido de la pagina  */}
-      <div className="md:flex md:h-screen m-1">
-        {/* Aside o menu lateral */}
-        <aside
-          className={`transition-all duration-500  ${
-            asideOpen ? "md:w-1/6 bg-gray-300" : "md:w-0"
-          } `}
-        >
-          <SideBard 
-            opciones={opciones}
-            />
-        </aside>
+        {/* Contenido de la pagina  */}
+        <div className="md:flex md:w-screen md:h-screen p-3 ">
+          {/* Aside o menu lateral */}
+          <aside
+            className={`transition-all duration-500  ${
+              asideOpen ? "md:w-1/6 bg-white rounded-md m-2" : "md:w-0"
+            } `}
+          >
+            <SideBard 
+              opciones={opciones}
+              />
+          </aside>
 
-        {/* Contenido de la pagina */}
-        <main
-          className={`bg-gray-400 rounded-xl w-screen transition-all duration-500 overflow-scroll  ${
-            !asideOpen ? "md:w-6/6" : "md:w-5/6"
-          } `}
-        >
-          {childrenProps}
-        
-        <footer 
-          className="mt-20 w-full bg-white h-[30%]">
-         <FooterDashboard />
-        </footer>
-        
-        </main>
-        
+          {/* Contenido de la pagina */}
+          <main
+            className={`bg-gray-200 rounded-xl transition-all  duration-500  ${
+              !asideOpen ? "md:w-6/6" : "md:w-5/6"
+            } `}
+          >
+            {childrenProps}
+          
+            <footer 
+              className="mt-5 w-full bg-gray-200 h-[50%]">
+            <FooterDashboard userData={userData} />
+            </footer>
+          
+          </main>
+          
+        </div>
       </div>
-    </div>
+
   );
+  
 };
+
 
 export default LayoutDashboard;

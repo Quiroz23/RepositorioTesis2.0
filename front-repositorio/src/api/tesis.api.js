@@ -25,3 +25,19 @@ export const addTesisWithFile = (data) => {
         },
     });
 };
+
+export const decryptTesis = async (id) => {
+    try {
+        const response = await TesisApi.get(`/desencriptar_tesis/${id}/`, {
+            responseType: 'arraybuffer',
+        });
+
+        const blob = new Blob([response.data], { type: 'application/pdf' });
+        const blobUrl = URL.createObjectURL(blob);
+
+        return blobUrl;
+    } catch (error) {
+        console.error('Error al desencriptar la tesis:', error);
+        throw error;
+    }
+};

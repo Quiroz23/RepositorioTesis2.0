@@ -10,5 +10,5 @@ urlpatterns = [
     path('api/tesis/', include(router.urls)),
     path('api/tesis/upload/', TesisView.as_view({'post': 'create_with_file'}), name='tesis-upload'),
     path('docs/', include_docs_urls(title='Repositorio API')),
-    # Ruta para manejar la carga de archivos
+    path('api/tesis/desencriptar_tesis/<int:id_tesis>/', TesisView.desencriptar_tesis, name='desencriptar_tesis'),
 ]

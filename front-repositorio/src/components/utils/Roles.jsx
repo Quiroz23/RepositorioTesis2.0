@@ -21,7 +21,7 @@ const getOpciones = (rol, idUser) => {
     } else if (rol === 'profesor') {
         opciones.titulo = 'Profesor';
         opciones.enlace1[0] = 'Administrar Tesis';
-        opciones.enlace1[1] = 'Administrar Solicitudes'; // - Arreglar url
+        opciones.enlace1[1] = `/AdministrarTesis/${idUser}` // - Arreglar url
         opciones.enlace2[0] = 'Enviar mensaje'
         opciones.enlace2[1] = `/Perfil/${idUser}` // - Arreglar url
         opciones.enlacePerfil[0] = 'Perfil'

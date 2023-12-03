@@ -40,6 +40,7 @@ const SearchModal = ({ isOpen, onClose, userData}) => {
 
         return titulo || creador || fecha;
       });
+  
       setResultadosDeBusqueda(resultados);
       console.log('Resultados de la búsqueda:', resultados);
     }

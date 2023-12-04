@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'apps.usuarios', # ------------------------ Apps --------------------------------
     'apps.peticiones',
     'apps.tesis',
+    'apps.detalleTesis',
     ]
 
 

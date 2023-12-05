@@ -2,11 +2,8 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getAllTesis, updateTesis } from "../api/tesis.api";
 
-const AdministrarTesis = () => {
+const AdministrarTesis = ({ userData }) => {
   const [tesisList, setTesisList] = useState([]);
-
-
-
 
   useEffect(() => {
     async function loadTesis() {
@@ -15,8 +12,9 @@ const AdministrarTesis = () => {
       setTesisList(rest.data);
     }
     loadTesis();
-  }, []);
+  }, [])
 
+  console.log(userData)
 
   return (
     <div className="m-5 bg-gray-300 p-20 rounded-md shadow-md">
@@ -58,7 +56,11 @@ const AdministrarTesis = () => {
               </td>
               <td className="py-2 px-4 border-b text-center flex items-center justify-center">
                 <Link
-                  to={""}
+                  to={
+                    userData && userData.id
+                      ? `/leer-tesis/${userData.id}/${tesis.id}`
+                      : "/leer-tesis/"
+                  }
                   className="bg-blue-500 text-white px-3 py-1 rounded-md mr-2"
                 >
                   <svg
@@ -72,7 +74,7 @@ const AdministrarTesis = () => {
                   </svg>
                   Ver
                 </Link>
-                <button  className="bg-red-500 text-white px-3 py-1 rounded-md mr-2">
+                <button className="bg-red-500 text-white px-3 py-1 rounded-md mr-2">
                   <svg
                     viewBox="0 0 1024 1024"
                     fill="#ffffff"

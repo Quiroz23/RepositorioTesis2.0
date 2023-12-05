@@ -16,6 +16,7 @@ class Peticiones(models.Model):
     nombre_usuario = models.CharField(max_length=255)
     mensaje = models.TextField(blank=True)
     estado = models.CharField(max_length=10, choices=ESTADO_CHOICES, default='enEspera', blank=True)
+    fecha_creacion = models.DateField(auto_now_add=True, blank=True)
     
             
     def __str__(self) -> str:

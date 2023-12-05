@@ -26,6 +26,8 @@ const getOpciones = (rol, idUser) => {
         opciones.enlace2[1] = `/Perfil/${idUser}` // - Arreglar url
         opciones.enlacePerfil[0] = 'Perfil'
         opciones.enlacePerfil[1] = `/Perfil/${idUser}`
+        opciones.enlaceView[0] = 'Historial de tesis'
+        opciones.enlaceView[1] = `/ViewTesis/${idUser}`
     } else if (rol === 'jefeCarrera') {
         opciones.titulo = 'Jefe de carrera';
         opciones.enlace1[0] = 'Administrar Solicitudes';

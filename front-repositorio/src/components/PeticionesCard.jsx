@@ -1,8 +1,12 @@
-import { updatePeticion } from "../api/peticiones.api";
+import { useState } from "react";
+import { updatePeticion } from "../api/peticiones.api"
+import DetalleModal from "./DetalleModal";
+
 
 export const PeticionesCard = ({ data }) => {
 
-  
+  const [ openModalSolicitar, setOpenModalSolicitar ] = useState(false)
+
   const handleAceptar = () => {
     const newData = { ...data, estado: 'aprobado' };
     updatePeticion(data.id, newData)
@@ -15,7 +19,7 @@ export const PeticionesCard = ({ data }) => {
         console.error("Error al aceptar la petición:", error);
         // Maneja el error
       });
-  };
+  }
 
   const handleRechazar = () => {
     const newData = { ...data, estado: 'rechazado'};
@@ -30,14 +34,25 @@ export const PeticionesCard = ({ data }) => {
        
       });
     
-  };
+  }
+
+  const openModalS = () => {
+    setOpenModalSolicitar(true);
+  }
+
+  const closeModalS = () => {
+    setOpenModalSolicitar(false);
+  }
+  
 
   return (
     <tr className="border-b border-gray-200 hover:bg-gray-100">
-      <td className="py-3 px-6 text-left whitespace-nowrap">
+      <td className="py-3 px-6 text-left whitespace-nowrap font-semibold">
         {data.nombre_usuario}
       </td>
-      <td className="py-3 px-6 text-left">{data.nombre_tesis}</td>
+      <td className="py-3 px-6 font-semibold">{data.nombre_tesis}</td>
+     
+      
       <td className="py-3 px-6 text-center">
         <span
           className={`py-1 px-3 rounded-full text-xs ${
@@ -54,6 +69,11 @@ export const PeticionesCard = ({ data }) => {
             ? "Rechazado"
             : "En Espera"}
         </span>
+      </td>
+      <td className="text-center font-semibold">{data.fecha_creacion}</td>
+      <td className="text-center">
+        <button className="bg-blue-600 text-white font-semibold p-2 rounded-2xl hover:bg-blue-400" onClick={openModalS}>Ver motivo</button>
+        <DetalleModal isOpenModalS={openModalSolicitar} closeModalS={closeModalS} detalleTesis={data.mensaje} />
       </td>
 
       <td className="py-3 px-6 text-center flex justify-center gap-1">

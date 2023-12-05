@@ -39,12 +39,19 @@ const PreviewTesis = ({ userData }) => {
     const loadPeticionesData = async () => {
       try {
         const res = await getAllPeticiones();
-        console.log("Respuesta de getAllPeticiones:", res.data); // Agrega esta línea
+        console.log("Respuesta de getAllPeticiones:", res.data);
+
+        // Convierte idTesis e id a números si es necesario
+        const idTesisNumber = parseInt(idTesis, 10);
+        const idNumber = parseInt(id, 10);
+
+        // Filtra las peticiones con las condiciones correctas
         const peticiones = res.data.filter(
-          (peticion) => peticion.id_tesis === idTesis && peticion.id_Usuario === id
+          (peticion) =>
+            peticion.id_tesis === idTesisNumber && peticion.id_Usuario === idNumber
         );
+
         setPeticionesUsuario(peticiones);
-        
       } catch (error) {
         console.error("Error al cargar las peticiones:", error);
       }
@@ -55,17 +62,12 @@ const PreviewTesis = ({ userData }) => {
     }
   }, [idTesis, id]);
 
-  console.log(peticionesUsuario)
-  
-
-
+  console.log(peticionesUsuario);
 
   const isJefeCarreraOProfesor =
     userData &&
     (userData.rol_usuario === "jefeCarrera" ||
       userData.rol_usuario === "profesor");
-  
-    // const isEstudiante = userData && userData.rol_usuario === "estudiante";
 
   if (!dataTesis) {
     return <p>Cargando datos de la tesis...</p>;
@@ -120,7 +122,7 @@ const PreviewTesis = ({ userData }) => {
             </Link>
           ) : (
             <>
-              {peticionesUsuario.length !== 0 ? (
+              {peticionesUsuario.length === 0 ? (
                 <button
                   className="h-10 w-full bg-red-600 rounded-lg shadow-sm hover:bg-red-400 text-white p-2"
                   onClick={openModalS}

@@ -13,6 +13,7 @@ import PreviewTesis from "../pages/PreviewTesis";
 import SolicitudesRealizadas from "../pages/SolicitudesRealizadas";
 import ViewPdf from "../pages/ViewPdf";
 import AdministrarTesis from "../pages/AdministrarTesis";
+import HistorialSolicitadas from "../pages/HistorialSolicitadas";
 
 
 const AppRouter = () => {
@@ -33,14 +34,14 @@ const AppRouter = () => {
               <Route path="/HomeDashboard/:id" 
               element={
               <LayoutDashboard setUser={setUser}>
-                <DashboardPage/>
+                <DashboardPage />
               </LayoutDashboard>
               } />
               <Route
               path="/New-Tesis/:id"
               element={
                 <LayoutDashboard>
-                  <NewTesis/>
+                  <NewTesis />
                 </LayoutDashboard>
               } />
               <Route
@@ -54,21 +55,21 @@ const AppRouter = () => {
               path= "/ListTesis/:id"
               element={
                 <LayoutDashboard>
-                  <ListTesis/>
+                  <ListTesis />
                 </LayoutDashboard>
               } />
               <Route
                 path="/PreviewTesis/:id/:idTesis"
                 element={
                 <LayoutDashboard>
-                  <PreviewTesis/>
+                  <PreviewTesis />
                 </LayoutDashboard>}
               />
               <Route 
               path="/ViewTesis/:id/"
               element={
               <LayoutDashboard>
-                <SolicitudesRealizadas/>
+                <SolicitudesRealizadas />
               </LayoutDashboard>} 
 
               />
@@ -76,7 +77,7 @@ const AppRouter = () => {
                 path="/leer-tesis/:id/:idTesis"
                 element={
                   <LayoutDashboard>
-                    <ViewPdf/>
+                    <ViewPdf />
                   </LayoutDashboard>
                 }
               />
@@ -84,7 +85,15 @@ const AppRouter = () => {
                 path="/AdministrarTesis/:id"
                 element={
                   <LayoutDashboard>
-                    <AdministrarTesis/>
+                    <AdministrarTesis />
+                  </LayoutDashboard>
+                }
+              />
+              <Route
+                path="/HistorialSolicitudes/:id"
+                element={
+                  <LayoutDashboard>
+                    <HistorialSolicitadas />
                   </LayoutDashboard>
                 }
               />

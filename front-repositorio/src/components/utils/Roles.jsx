@@ -36,6 +36,8 @@ const getOpciones = (rol, idUser) => {
         opciones.enlace2[1] = `/Perfil/${idUser}`// - Arreglar url
         opciones.enlacePerfil[0] = 'Perfil'
         opciones.enlacePerfil[1] = `/Perfil/${idUser}` 
+        opciones.enlaceView[0] = 'Historial de solicitudes'
+        opciones.enlaceView[1] = `/HistorialSolicitudes/${idUser}`
     }
   
     return opciones;

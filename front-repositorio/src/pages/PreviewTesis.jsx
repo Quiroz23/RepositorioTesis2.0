@@ -4,11 +4,14 @@ import { getTesis } from "../api/tesis.api";
 import ImagenEjemplo from "../img/ImagenPortadaEjemplo.png";
 import NewPeticion from "../components/NewPeticion";
 import {formatDate} from '../components/utils/FormatDate';
+import { getAllPeticiones } from "../api/peticiones.api"
 
 const PreviewTesis = ({ userData }) => {
   const params = useParams();
-  const [dataTesis, setDataTesis] = useState()
+  const [ dataTesis, setDataTesis ] = useState()
   const [ openModalSolicitar, setOpenModalSolicitar ] = useState(false)
+
+
 
   const openModalS = () => {
     setOpenModalSolicitar(true);
@@ -17,6 +20,9 @@ const PreviewTesis = ({ userData }) => {
   const closeModalS = () => {
     setOpenModalSolicitar(false);
   }
+  
+
+
 
   useEffect(() => {
     async function loadTesisData() {

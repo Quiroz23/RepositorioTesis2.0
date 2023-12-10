@@ -89,7 +89,7 @@ class TesisView(viewsets.ModelViewSet):
                 'encrypted_file': encrypted_data,
             }
 
-            return Response(response_data, status=status.HTTP_201_CREATED)
+            return Response({'id': nueva_tesis.id}, status=status.HTTP_201_CREATED)
 
         except Exception as e:
             raise APIException(detail=str(e), code=status.HTTP_500_INTERNAL_SERVER_ERROR)

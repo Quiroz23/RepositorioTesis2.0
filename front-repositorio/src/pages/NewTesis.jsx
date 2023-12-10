@@ -1,6 +1,8 @@
 import { useState } from "react";
 import toast from "react-hot-toast"; // Esta importacion nos permite crear alertas
 import { addTesisWithFile } from "../api/tesis.api";
+import { createDetalle } from "../api/detalleTesis.api";
+
 
 const NewTesis = ({ userData }) => {
   const [fecha, SetFecha] = useState("");
@@ -44,8 +46,41 @@ const NewTesis = ({ userData }) => {
           position: "top-center",
         });
 
-        console.log("Tesis agregada con éxito:", response.data);
+        console.log("Tesis agregada con éxito:", response.data)
+
+        const idTesis = response.data.id
+
+        console.log('Id de la tesis',idTesis)
+
+
+        if (idTesis) {
+          const detalleRespost = await createDetalle({
+            id_Usuario: id, 
+            id_tesis: idTesis,
+            titulo_tesis: tituloTesis,
+            nombre_autor: nombre_usuario,
+            mensaje: '',
+            estado: 'enEspera',
+          });
+        
+          console.log('Detalle tesis agregado con éxito', detalleRespost.data);
+        } else {
+          console.error('El idTesis es nulo o indefinido.');
+          // Puedes manejar este caso, mostrar un mensaje de error, etc.
+        }
+
+        // const detalleRespost = await createDetalle({
+        //   id_Usuario: id,
+        //   id_tesis: idTesis,
+        //   titulo_tesis: tituloTesis,
+        //   nombre_autor: nombre_usuario,
+        //   mensaje:'',
+        //   estado:'enEspera',
+        // })
+        // console.log('Detalle tesis agregado con exito',detalleRespost.data)
+
       } catch (error) {
+        
         console.error("Error al agregar la tesis:", error);
         toast.error("Error al subir la tesis", {
           position: "top-center",

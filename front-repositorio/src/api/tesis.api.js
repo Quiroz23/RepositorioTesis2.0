@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const TesisApi = axios.create({
-    baseURL: 'http://127.0.0.1:8000/tesis/api/tesis/',
+    baseURL: 'https://repotesis.onrender.com/tesis/api/tesis/',
 });
 
 export const getAllTesis = () => TesisApi.get('/tesis/');

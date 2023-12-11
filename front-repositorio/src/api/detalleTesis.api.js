@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const DetallesApi = axios.create({
-    baseURL: 'http://127.0.0.1:8000/detalle/api/detalle'
+    baseURL: 'https://repotesis.onrender.com/detalle/api/detalle'
 })
 
 export const createDetalle = (data) => DetallesApi.post('/', data) 

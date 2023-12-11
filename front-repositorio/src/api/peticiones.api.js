@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const PeticionesApi = axios.create({
-    baseURL: 'http://127.0.0.1:8000/peticiones/api/peticiones/'
+    baseURL: 'https://repotesis.onrender.com/peticiones/api/peticiones/'
 })
 
 export const getAllPeticiones = () => PeticionesApi.get('/')

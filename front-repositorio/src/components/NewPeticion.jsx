@@ -3,7 +3,8 @@ import { createPeticion } from "../api/peticiones.api";
 
 const NewPeticion = ({ isOpenModalS, closeModalS, dataTesis, userData }) => {
   const [motivoSolicitar, setMotivoSolicitar] = useState('');
-  const [nombreUsuario, setNombreUsuario] = useState(userData.nombre_usuario);
+  const [nombreUsuario, setNombreUsuario] = useState(userData ? userData.nombre_usuario : '');
+
 
   const onSubmit = async () => {
     try {
